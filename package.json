@@ -1,0 +1,28 @@
+{
+  "name": "z-sport",
+  "version": "1.0.0",
+  "description": "Sitio web de análisis de x-sport",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "compile": "tsc",
+    "copy": "mkdir dist/views && cp src/views/*.pug dist/views/",
+    "dev": "nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "DevAngelRD",
+  "license": "MIT",
+  "dependencies": {
+    "@types/cli-color": "^2.0.2",
+    "@types/node": "^20.1.0",
+    "cli-color": "^2.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
+    "puppeteer": "^19.11.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17"
+  }
+}

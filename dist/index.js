@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const dotenv_1 = __importDefault(require("dotenv"));
+const cli_color_1 = __importDefault(require("cli-color"));
+const router_1 = __importDefault(require("./config/router"));
+const path_1 = __importDefault(require("path"));
+dotenv_1.default.config();
+const PORT = process.env.PORT || 6513;
+const app = (0, express_1.default)();
+const router = (0, router_1.default)({ routesDir: './routes' });
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
+app.use(router);
+app.use('/public', express_1.default.static(path_1.default.join(__dirname, './public')));
+app.set('views', path_1.default.join(__dirname, './views'));
+app.set('view engine', 'pug');
+app.listen(PORT, () => console.log(cli_color_1.default.yellow(`Website on port ${PORT}`)));
